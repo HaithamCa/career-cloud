@@ -1,0 +1,12 @@
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.DataAccessLayer/bin/Debug/net6.0/CareerCloud.DataAccessLayer.deps.json
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.DataAccessLayer/bin/Debug/net6.0/CareerCloud.DataAccessLayer.dll
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.DataAccessLayer/bin/Debug/net6.0/CareerCloud.DataAccessLayer.pdb
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.DataAccessLayer/obj/Debug/net6.0/CareerCloud.DataAccessLayer.csproj.AssemblyReference.cache
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.DataAccessLayer/obj/Debug/net6.0/CareerCloud.DataAccessLayer.GeneratedMSBuildEditorConfig.editorconfig
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.DataAccessLayer/obj/Debug/net6.0/CareerCloud.DataAccessLayer.AssemblyInfoInputs.cache
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.DataAccessLayer/obj/Debug/net6.0/CareerCloud.DataAccessLayer.AssemblyInfo.cs
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.DataAccessLayer/obj/Debug/net6.0/CareerCloud.DataAccessLayer.csproj.CoreCompileInputs.cache
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.DataAccessLayer/obj/Debug/net6.0/CareerCloud.DataAccessLayer.dll
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.DataAccessLayer/obj/Debug/net6.0/refint/CareerCloud.DataAccessLayer.dll
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.DataAccessLayer/obj/Debug/net6.0/CareerCloud.DataAccessLayer.pdb
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.DataAccessLayer/obj/Debug/net6.0/ref/CareerCloud.DataAccessLayer.dll

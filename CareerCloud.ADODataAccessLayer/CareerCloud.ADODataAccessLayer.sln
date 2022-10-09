@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1700.7
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CareerCloud.ADODataAccessLayer", "CareerCloud.ADODataAccessLayer.csproj", "{F35F1F4D-E028-4E5F-8140-B2E541A91782}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F35F1F4D-E028-4E5F-8140-B2E541A91782}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F35F1F4D-E028-4E5F-8140-B2E541A91782}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F35F1F4D-E028-4E5F-8140-B2E541A91782}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F35F1F4D-E028-4E5F-8140-B2E541A91782}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3049B67A-73DF-4734-BF03-37575498D7F1}
+	EndGlobalSection
+EndGlobal

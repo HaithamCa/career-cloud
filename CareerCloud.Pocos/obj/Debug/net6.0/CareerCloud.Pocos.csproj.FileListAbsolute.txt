@@ -1,0 +1,12 @@
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.Pocos/bin/Debug/net6.0/CareerCloud.Pocos.deps.json
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.Pocos/bin/Debug/net6.0/CareerCloud.Pocos.dll
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.Pocos/bin/Debug/net6.0/CareerCloud.Pocos.pdb
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.Pocos/obj/Debug/net6.0/CareerCloud.Pocos.csproj.AssemblyReference.cache
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.Pocos/obj/Debug/net6.0/CareerCloud.Pocos.GeneratedMSBuildEditorConfig.editorconfig
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.Pocos/obj/Debug/net6.0/CareerCloud.Pocos.AssemblyInfoInputs.cache
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.Pocos/obj/Debug/net6.0/CareerCloud.Pocos.AssemblyInfo.cs
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.Pocos/obj/Debug/net6.0/CareerCloud.Pocos.csproj.CoreCompileInputs.cache
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.Pocos/obj/Debug/net6.0/CareerCloud.Pocos.dll
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.Pocos/obj/Debug/net6.0/refint/CareerCloud.Pocos.dll
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.Pocos/obj/Debug/net6.0/CareerCloud.Pocos.pdb
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.Pocos/obj/Debug/net6.0/ref/CareerCloud.Pocos.dll

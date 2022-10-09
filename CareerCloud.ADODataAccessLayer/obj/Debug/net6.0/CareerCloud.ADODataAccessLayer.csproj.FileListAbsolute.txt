@@ -1,0 +1,17 @@
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.ADODataAccessLayer/bin/Debug/net6.0/CareerCloud.ADODataAccessLayer.deps.json
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.ADODataAccessLayer/bin/Debug/net6.0/CareerCloud.ADODataAccessLayer.dll
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.ADODataAccessLayer/bin/Debug/net6.0/CareerCloud.ADODataAccessLayer.pdb
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.ADODataAccessLayer/bin/Debug/net6.0/CareerCloud.DataAccessLayer.dll
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.ADODataAccessLayer/bin/Debug/net6.0/CareerCloud.Pocos.dll
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.ADODataAccessLayer/bin/Debug/net6.0/CareerCloud.DataAccessLayer.pdb
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.ADODataAccessLayer/bin/Debug/net6.0/CareerCloud.Pocos.pdb
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.ADODataAccessLayer/obj/Debug/net6.0/CareerCloud.ADODataAccessLayer.csproj.AssemblyReference.cache
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.ADODataAccessLayer/obj/Debug/net6.0/CareerCloud.ADODataAccessLayer.GeneratedMSBuildEditorConfig.editorconfig
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.ADODataAccessLayer/obj/Debug/net6.0/CareerCloud.ADODataAccessLayer.AssemblyInfoInputs.cache
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.ADODataAccessLayer/obj/Debug/net6.0/CareerCloud.ADODataAccessLayer.AssemblyInfo.cs
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.ADODataAccessLayer/obj/Debug/net6.0/CareerCloud.ADODataAccessLayer.csproj.CoreCompileInputs.cache
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.ADODataAccessLayer/obj/Debug/net6.0/CareerCloud.ADODataAccessLayer.csproj.CopyComplete
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.ADODataAccessLayer/obj/Debug/net6.0/CareerCloud.ADODataAccessLayer.dll
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.ADODataAccessLayer/obj/Debug/net6.0/refint/CareerCloud.ADODataAccessLayer.dll
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.ADODataAccessLayer/obj/Debug/net6.0/CareerCloud.ADODataAccessLayer.pdb
+/Users/hythamdefrawy/Projects/CareerCloud/CareerCloud.ADODataAccessLayer/obj/Debug/net6.0/ref/CareerCloud.ADODataAccessLayer.dll
