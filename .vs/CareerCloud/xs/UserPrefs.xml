@@ -1,8 +1,7 @@
 ﻿<Properties StartupConfiguration="{FC26F951-B0E5-472D-AA7A-182F5DAF182E}|Default" GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.CareerCloudCore.UnitTests.Assignment1 PreferredExecutionTarget="MonoDevelop.Default" />
-  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workbench ActiveDocument="CareerCloud.ADODataAccessLayer/SystemLanguageCodeRepository.cs">
     <Files>
       <File FileName="CareerCloud.ADODataAccessLayer/ApplicantEducationRepository.cs" Line="91" Column="56" />
@@ -12,14 +11,7 @@
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="CareerCloud" expanded="True">
-            <Node name="CareerCloud.ADODataAccessLayer" expanded="True" />
-            <Node name="CareerCloud.Pocos" expanded="True" />
-            <Node name="CareerCloudCore.UnitTests.Assignment1" expanded="True" />
-            <Node name="CareerCloudCore.UnitTests.Assignment2" expanded="True">
-              <Node name="Dependencies" expanded="True" />
-            </Node>
-          </Node>
+          <Node name="CareerCloud" expanded="True" selected="True" />
         </State>
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
@@ -27,16 +19,11 @@
       </Pad>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">
         <State name="__root__">
-          <Node name="CareerCloud" expanded="True">
-            <Node name="CareerCloudCore.UnitTests.Assignment2" expanded="True">
-              <Node name="CareerCloud.UnitTests.Assignment2" expanded="True">
-                <Node name="Assingment2Marking" expanded="True" />
-              </Node>
-            </Node>
-          </Node>
+          <Node name="CareerCloud" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
 </Properties>
