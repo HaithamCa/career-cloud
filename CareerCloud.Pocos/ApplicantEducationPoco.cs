@@ -26,6 +26,9 @@ namespace CareerCloud.Pocos
         public byte? CompletionPercent { get; set; } // tinyint
         [Column("Time_Stamp")]
         public byte[]? TimeStamp { get; set; } // rowversion
+
+        public virtual ApplicantProfilePoco ApplicantProfile { get; set; }
+
     }
 }
 
