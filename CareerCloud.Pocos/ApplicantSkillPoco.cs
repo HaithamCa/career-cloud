@@ -30,6 +30,8 @@ namespace CareerCloud.Pocos
         public Int32 Importance { get; set; }
         [Column("Time_Stamp")]
         public byte[]? TimeStamp { get; set; } // rowversion
+
+        public virtual ApplicantProfilePoco ApplicantProfile { get; set; }
     }
 }
 
