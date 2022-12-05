@@ -9,7 +9,7 @@ namespace CareerCloud.EntityFrameworkDataAccess
 {
     public class CareerCloudContext : DbContext
     {
-        public DbSet<ApplicantEducationPoco>  ApplicantEducations { get; set; }
+        public DbSet<ApplicantEducationPoco> ApplicantEducations { get; set; }
         public DbSet<ApplicantJobApplicationPoco> ApplicantJobApplications { get; set; }
         public DbSet<ApplicantProfilePoco> ApplicantProfiles { get; set; }
         public DbSet<ApplicantResumePoco> ApplicantResumes { get; set; }
@@ -92,11 +92,11 @@ namespace CareerCloud.EntityFrameworkDataAccess
                 .HasForeignKey(f => f.Applicant);
             });
 
-            
+
             modelBuilder.Entity<ApplicantWorkHistoryPoco>(entity =>
             {
                 entity.HasOne(scc => scc.SystemCountryCode)
-                .WithMany(awh => awh.ApplicantWorkHistories)
+                .WithMany(awh => awh.ApplicantWorkHistorys)
                 .HasForeignKey(f => f.CountryCode);
             });
 
