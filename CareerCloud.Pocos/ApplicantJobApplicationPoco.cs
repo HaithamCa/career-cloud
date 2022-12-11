@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace CareerCloud.Pocos
 {
@@ -11,21 +12,18 @@ namespace CareerCloud.Pocos
     public class ApplicantJobApplicationPoco : IPoco
     {
         [Key]
-        public Guid Id { get; set; } // id PK
-
-        public Guid Applicant { get; set; } // FK
-
-        public Guid Job { get; set; } // FK
+        public Guid Id { get; set; }
+        public Guid Applicant { get; set; }
+        public Guid Job { get; set; }
 
         [Column("Application_Date")]
         public DateTime ApplicationDate { get; set; }
 
         [Column("Time_Stamp")]
-        public byte[]? TimeStamp { get; set; }
+        [Timestamp]
+        public byte[] TimeStamp { get; set; }
 
         public virtual ApplicantProfilePoco ApplicantProfile { get; set; }
         public virtual CompanyJobPoco CompanyJob { get; set; }
     }
 }
-
-
