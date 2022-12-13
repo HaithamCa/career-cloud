@@ -18,6 +18,9 @@ namespace CareerCloud.Pocos
         public string? Resume { get; set; } // varchar
         [Column("Last_Updated")]
         public DateTime? LastUpdated { get; set; }
+
+        public virtual ApplicantProfilePoco ApplicantProfile { get; set; }
+
     }
 }
 
