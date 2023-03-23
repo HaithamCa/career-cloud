@@ -19,6 +19,8 @@ namespace CareerCloud.Pocos
         public Int16 Importance { get; set; } // tinyint
         [Column("Time_Stamp")]
         public byte[]? TimeStamp { get; set; } // rowversion
+
+        public virtual CompanyJobPoco CompanyJob { get; set; }
     }
 }
 
