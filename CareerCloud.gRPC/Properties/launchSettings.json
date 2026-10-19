@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "CareerCloud.gRPC": {
+      "commandName": "Project",
+      "applicationUrl": "http://localhost:5001;https://localhost:7115",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
