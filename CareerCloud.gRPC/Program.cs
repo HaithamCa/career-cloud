@@ -43,11 +43,6 @@ namespace GrpcServer
 
             // Add services to the container.
             builder.Services.AddGrpc();
-            builder.Services.AddHttpClient("productApi", options =>
-            {
-                options.BaseAddress = new Uri(builder.Configuration
-                    .GetSection("ApiOptions:BaseAddress").Value);
-            });
 
             var app = builder.Build();
 

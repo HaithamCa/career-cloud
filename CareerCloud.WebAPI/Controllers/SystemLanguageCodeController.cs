@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CareerCloud.WebAPI.Controllers
 {
-    [Route("api/careercloud/applicant/v1")]
+    [Route("api/careercloud/system/v1")]
     [ApiController]
     public class SystemLanguageCodeController : ControllerBase
     {
@@ -23,7 +23,7 @@ namespace CareerCloud.WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("education/{SystemLanguageCodeId}")]
+        [Route("languagecode/{systemLanguageCodeId}")]
         public ActionResult GetSystemLanguageCode(string systemLanguageCodeId)
         {
             SystemLanguageCodePoco systemLanguageCode = _systemLanguageCodeLogic.Get(systemLanguageCodeId);
@@ -36,7 +36,7 @@ namespace CareerCloud.WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("education")]
+        [Route("languagecode")]
 
         public ActionResult GetSystemLanguageCode()
         {
@@ -45,7 +45,7 @@ namespace CareerCloud.WebAPI.Controllers
         }
 
         [HttpPost]
-        [Route("education")]
+        [Route("languagecode")]
         public ActionResult PostSystemLanguageCode([FromBody] SystemLanguageCodePoco[] pocos)
         {
             _systemLanguageCodeLogic.Add(pocos);
@@ -53,7 +53,7 @@ namespace CareerCloud.WebAPI.Controllers
         }
 
         [HttpPut]
-        [Route("education")]
+        [Route("languagecode")]
         public ActionResult PutSystemLanguageCode([FromBody] SystemLanguageCodePoco[] pocos)
         {
             _systemLanguageCodeLogic.Update(pocos);
@@ -61,7 +61,7 @@ namespace CareerCloud.WebAPI.Controllers
         }
 
         [HttpDelete]
-        [Route("education")]
+        [Route("languagecode")]
         public ActionResult DeleteSystemLanguageCode([FromBody] SystemLanguageCodePoco[] pocos)
         {
             _systemLanguageCodeLogic.Delete(pocos);

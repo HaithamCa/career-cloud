@@ -470,7 +470,7 @@ namespace CareerCloud.UnitTests.Assignment3
             ApplicantSkillLogic logic = new ApplicantSkillLogic(moqRepo.Object);
             try
             {
-                logic.Add(new ApplicantSkillPoco[]
+                logic.Update(new ApplicantSkillPoco[]
                     { new ApplicantSkillPoco() { Id = Guid.NewGuid(),StartMonth = 12, EndMonth = 12, StartYear = 2017, EndYear = 2016 } });
                 Assert.Fail("No validaton exception generated");
             }
@@ -501,6 +501,7 @@ namespace CareerCloud.UnitTests.Assignment3
             }
         }
 
+        [TestMethod]
         public void ApplicantWorkHistory_CompanyName_GreaterThan2Chars_Update_Test()
         {
             Mock<IDataRepository<ApplicantWorkHistoryPoco>> moqRepo = new Mock<IDataRepository<ApplicantWorkHistoryPoco>>();

@@ -18,16 +18,8 @@ namespace CareerCloud.Pocos
         public string? Skill { get; set; } // VArchar ==
         [Column("Skill_Level")]
         public string? SkillLevel { get; set; } // varchar==
-        [Column("Start_Month")]
-        public byte StartMonth { get; set; }
         [Column("Importance")]
         public int Importance { get; set; }
-        [Column("Start_Year")]
-        public Int32 StartYear { get; set; } // tinyint ==
-        [Column("End_Month")]
-        public byte EndMonth { get; set; }
-        [Column("End_Year")]
-        public Int32 EndYear { get; set; } // tinyint ==
         [Column("Time_Stamp")]
         public byte[]? TimeStamp { get; set; } // rowversion
 

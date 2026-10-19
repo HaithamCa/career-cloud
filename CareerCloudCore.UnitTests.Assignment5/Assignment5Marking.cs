@@ -1309,7 +1309,7 @@ namespace CareerCloudCore.UnitTests.Assignment5
             ActionResult result = controller.DeleteApplicantProfile(new ApplicantProfilePoco[] { _applicantProfile });
             Assert.IsInstanceOfType(result, typeof(OkResult));
 
-            result = controller.GetApplicantProfile(_securityLoginRole.Id);
+            result = controller.GetApplicantProfile(_applicantProfile.Id);
             Assert.IsInstanceOfType(result, typeof(NotFoundResult));
         }
 
@@ -1329,7 +1329,7 @@ namespace CareerCloudCore.UnitTests.Assignment5
             ActionResult result = controller.DeleteApplicantJobApplication(new ApplicantJobApplicationPoco[] { _applicantJobApplication });
             Assert.IsInstanceOfType(result, typeof(OkResult));
 
-            result = controller.GetApplicantJobApplication(_applicantEducation.Id);
+            result = controller.GetApplicantJobApplication(_applicantJobApplication.Id);
             Assert.IsInstanceOfType(result, typeof(NotFoundResult));
         }
 

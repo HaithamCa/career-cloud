@@ -24,7 +24,7 @@ namespace CareerCloud.gRPC.Services
         public override Task<SystemLanguageCodePayload> ReadSystemLanguageCode(SystemLanguageCodeIdRequest request, ServerCallContext context)
         {
             var poco = _logic.Get(request.LanguageID);
-            return new Task<SystemLanguageCodePayload>(() => new SystemLanguageCodePayload()
+            return Task.FromResult(new SystemLanguageCodePayload()
             {
                 LanguageID = poco.LanguageID,
                 Name = poco.Name,
@@ -41,7 +41,7 @@ namespace CareerCloud.gRPC.Services
                 NativeName= request.NativeName
             } };
             _logic.Add(pocos);
-            return new Task<Empty>(() => new Empty());
+            return Task.FromResult(new Empty());
         }
 
         public override Task<Empty> UpdateSystemLanguageCode(SystemLanguageCodePayload request, ServerCallContext context)
@@ -53,14 +53,14 @@ namespace CareerCloud.gRPC.Services
                 NativeName= request.NativeName
             } };
             _logic.Update(pocos);
-            return new Task<Empty>(() => new Empty());
+            return Task.FromResult(new Empty());
         }
 
         public override Task<Empty> DeleteSystemLanguageCode(SystemLanguageCodePayload request, ServerCallContext context)
         {
             SystemLanguageCodePoco poco = _logic.Get(request.LanguageID);
             _logic.Delete(new SystemLanguageCodePoco[] { poco });
-            return new Task<Empty>(() => new Empty());
+            return Task.FromResult(new Empty());
         }
     }
 }

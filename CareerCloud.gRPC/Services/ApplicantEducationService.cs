@@ -23,17 +23,16 @@ namespace CareerCloud.gRPC.Services
 
         public override Task<ApplicantEducationPayload> ReadApplicantEducation(ApplicantEducationIdRequest request, ServerCallContext context)
         {
-
             var poco = _logic.Get(Guid.Parse(request.Id));
-            return new Task<ApplicantEducationPayload>(() => new ApplicantEducationPayload()
+            return Task.FromResult(new ApplicantEducationPayload()
             {
                 Id = poco.Id.ToString(),
                 Applicant = poco.Applicant.ToString(),
                 CertificateDiploma = poco.CertificateDiploma,
-                CompletionDate = poco.CompletionDate is null ? null : Timestamp.FromDateTime((DateTime)poco.CompletionDate),
+                CompletionDate = poco.CompletionDate is null ? null : Timestamp.FromDateTime(DateTime.SpecifyKind((DateTime)poco.CompletionDate, DateTimeKind.Utc)),
                 CompletionPercent = poco.CompletionPercent is null ? 0 : (int)poco.CompletionPercent,
                 Major = poco.Major,
-                StartDate = poco.StartDate is null ? null : Timestamp.FromDateTime((DateTime)poco.StartDate)
+                StartDate = poco.StartDate is null ? null : Timestamp.FromDateTime(DateTime.SpecifyKind((DateTime)poco.StartDate, DateTimeKind.Utc))
             });
         }
 
@@ -50,7 +49,7 @@ namespace CareerCloud.gRPC.Services
                 StartDate = request.StartDate.ToDateTime()
             } };
             _logic.Add(pocos);
-            return new Task<Empty>(() => new Empty());
+            return Task.FromResult(new Empty());
         }
 
         public override Task<Empty> UpdateApplicantEducation(ApplicantEducationPayload request, ServerCallContext context)
@@ -66,14 +65,14 @@ namespace CareerCloud.gRPC.Services
                 StartDate = request.StartDate.ToDateTime()
             } };
             _logic.Update(pocos);
-            return new Task<Empty>(() => new Empty());
+            return Task.FromResult(new Empty());
         }
 
         public override Task<Empty> DeleteApplicantEducation(ApplicantEducationPayload request, ServerCallContext context)
         {
             ApplicantEducationPoco poco = _logic.Get(Guid.Parse(request.Id));
             _logic.Delete(new ApplicantEducationPoco[] { poco });
-            return new Task<Empty>(() => new Empty());
+            return Task.FromResult(new Empty());
         }
     }
 }

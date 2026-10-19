@@ -23,7 +23,7 @@ namespace CareerCloud.WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("countrycode/{id}")]
+        [Route("countrycode/{code}")]
         public ActionResult GetSystemCountryCode(string code)
         {
             SystemCountryCodePoco poco = _logic.Get(code);

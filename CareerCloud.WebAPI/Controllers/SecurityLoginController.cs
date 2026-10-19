@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CareerCloud.WebAPI.Controllers
 {
-    [Route("api/careercloud/applicant/v1")]
+    [Route("api/careercloud/security/v1")]
     [ApiController]
     public class SecurityLoginController : ControllerBase
     {

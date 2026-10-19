@@ -24,7 +24,7 @@ namespace CareerCloud.gRPC.Services
         public override Task<CompanyJobEducationPayload> ReadCompanyJobEducation(CompanyJobEducationIdRequest request, ServerCallContext context)
         {
             var poco = _logic.Get(Guid.Parse(request.Id));
-            return new Task<CompanyJobEducationPayload>(() => new CompanyJobEducationPayload()
+            return Task.FromResult(new CompanyJobEducationPayload()
             {
                 Id = poco.Id.ToString(),
                 Job = poco.Job.ToString(),
@@ -43,7 +43,7 @@ namespace CareerCloud.gRPC.Services
                 Major = request.Major
             } };
             _logic.Add(pocos);
-            return new Task<Empty>(() => new Empty());
+            return Task.FromResult(new Empty());
         }
 
         public override Task<Empty> UpdateCompanyJobEducation(CompanyJobEducationPayload request, ServerCallContext context)
@@ -56,14 +56,14 @@ namespace CareerCloud.gRPC.Services
                 Major = request.Major
             } };
             _logic.Update(pocos);
-            return new Task<Empty>(() => new Empty());
+            return Task.FromResult(new Empty());
         }
 
         public override Task<Empty> DeleteCompanyJobEducation(CompanyJobEducationPayload request, ServerCallContext context)
         {
             CompanyJobEducationPoco poco = _logic.Get(Guid.Parse(request.Id));
             _logic.Delete(new CompanyJobEducationPoco[] { poco });
-            return new Task<Empty>(() => new Empty());
+            return Task.FromResult(new Empty());
         }
     }
 }

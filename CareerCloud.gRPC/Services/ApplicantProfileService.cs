@@ -24,7 +24,7 @@ namespace CareerCloud.gRPC.Services
         public override Task<ApplicantProfilePayload> ReadApplicantProfile(ApplicantProfileIdRequest request, ServerCallContext context)
         {
             var poco = _logic.Get(Guid.Parse(request.Id));
-            return new Task<ApplicantProfilePayload>(() => new ApplicantProfilePayload()
+            return Task.FromResult(new ApplicantProfilePayload()
             {
                 Id = poco.Id.ToString(),
                 Login = poco.Login.ToString(),
@@ -55,7 +55,7 @@ namespace CareerCloud.gRPC.Services
                 Login = Guid.Parse(request.Login)
             } };
             _logic.Add(pocos);
-            return new Task<Empty>(() => new Empty());
+            return Task.FromResult(new Empty());
         }
 
         public override Task<Empty> UpdateApplicantProfile(ApplicantProfilePayload request, ServerCallContext context)
@@ -74,14 +74,14 @@ namespace CareerCloud.gRPC.Services
                 Login = Guid.Parse(request.Login)
             } };
             _logic.Update(pocos);
-            return new Task<Empty>(() => new Empty());
+            return Task.FromResult(new Empty());
         }
 
         public override Task<Empty> DeleteApplicantProfile(ApplicantProfilePayload request, ServerCallContext context)
         {
             ApplicantProfilePoco poco = _logic.Get(Guid.Parse(request.Id));
             _logic.Delete(new ApplicantProfilePoco[] { poco });
-            return new Task<Empty>(() => new Empty());
+            return Task.FromResult(new Empty());
         }
     }
 }

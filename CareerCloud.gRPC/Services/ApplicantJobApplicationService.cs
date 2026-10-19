@@ -24,12 +24,12 @@ namespace CareerCloud.gRPC.Services
         public override Task<ApplicantJobApplicationPayload> ReadApplicantJobApplication(ApplicantJobApplicationIdRequest request, ServerCallContext context)
         {
             var poco = _logic.Get(Guid.Parse(request.Id));
-            return new Task<ApplicantJobApplicationPayload>(() => new ApplicantJobApplicationPayload()
+            return Task.FromResult(new ApplicantJobApplicationPayload()
             {
                 Id = poco.Id.ToString(),
                 Applicant = poco.Applicant.ToString(),
                 Job = poco.Job.ToString(),
-                ApplicationDate = Timestamp.FromDateTime(poco.ApplicationDate)
+                ApplicationDate = Timestamp.FromDateTime(DateTime.SpecifyKind(poco.ApplicationDate, DateTimeKind.Utc))
             });
         }
 
@@ -43,7 +43,7 @@ namespace CareerCloud.gRPC.Services
                 ApplicationDate = request.ApplicationDate.ToDateTime()
             } };
             _logic.Add(pocos);
-            return new Task<Empty>(() => new Empty());
+            return Task.FromResult(new Empty());
         }
 
         public override Task<Empty> UpdateApplicantJobApplication(ApplicantJobApplicationPayload request, ServerCallContext context)
@@ -56,14 +56,14 @@ namespace CareerCloud.gRPC.Services
                 ApplicationDate = request.ApplicationDate.ToDateTime()
             } };
             _logic.Update(pocos);
-            return new Task<Empty>(() => new Empty());
+            return Task.FromResult(new Empty());
         }
 
         public override Task<Empty> DeleteApplicantJobApplication(ApplicantJobApplicationPayload request, ServerCallContext context)
         {
             ApplicantJobApplicationPoco poco = _logic.Get(Guid.Parse(request.Id));
             _logic.Delete(new ApplicantJobApplicationPoco[] { poco });
-            return new Task<Empty>(() => new Empty());
+            return Task.FromResult(new Empty());
         }
     }
 }

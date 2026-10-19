@@ -26,8 +26,6 @@ namespace CareerCloud.Pocos
         public int EndYear { get; set; } // VArchar ==
         [Column("Skill_Level")]
         public string? SkillLevel { get; set; } // varchar==
-        [Column("Importance")]
-        public Int32 Importance { get; set; }
         [Column("Time_Stamp")]
         public byte[]? TimeStamp { get; set; } // rowversion
 

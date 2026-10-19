@@ -19,8 +19,6 @@ namespace CareerCloud.Pocos
         public decimal? CurrentRate { get; set; } // varchar
         [Column("Currency")]
         public string? Currency { get; set; }
-        [Column("Currency_Code")]
-        public string? CurrencyCode { get; set; }
         [Column("Country_Code")]
         public string? Country { get; set; }
         [Column("State_Province_Code")]
@@ -40,7 +38,7 @@ namespace CareerCloud.Pocos
         public virtual ICollection<ApplicantJobApplicationPoco> ApplicantJobApplications { get; set; }
         public virtual ICollection<ApplicantResumePoco> ApplicantResumes { get; set; }
         public virtual ICollection<ApplicantSkillPoco> ApplicantSkills { get; set; }
-        public object ApplicantWorkHistorys { get; set; }
+        public virtual ICollection<ApplicantWorkHistoryPoco> ApplicantWorkHistorys { get; set; }
         //public object ApplicantWorkHistories { get; set; }
     }
 }

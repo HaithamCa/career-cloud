@@ -7,7 +7,7 @@ using CareerCloud.EntityFrameworkDataAccess;
 
 namespace CareerCloud.WebAPI.Controllers
 {
-    [Route("api/careercloud/appliscant/v1")]
+        [Route("api/careercloud/applicant/v1")]
     [ApiController]
     public class ApplicantJobApplicationController : ControllerBase
     {

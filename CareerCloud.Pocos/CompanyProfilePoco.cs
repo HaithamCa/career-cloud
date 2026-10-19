@@ -12,7 +12,6 @@ namespace CareerCloud.Pocos
     {
         [Key]
         public Guid Id { get; set; } // id PK
-        public DateTime? Registration_Date { get; set; } // FK
         [Column("Company_Website")]
         public string? CompanyWebsite { get; set; } // VArchar
         [Column("Contact_Phone")]

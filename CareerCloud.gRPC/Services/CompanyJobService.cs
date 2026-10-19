@@ -24,13 +24,13 @@ namespace CareerCloud.gRPC.Services
         public override Task<CompanyJobPayload> ReadCompanyJob(CompanyJobIdRequest request, ServerCallContext context)
         {
             var poco = _logic.Get(Guid.Parse(request.Id));
-            return new Task<CompanyJobPayload>(() => new CompanyJobPayload()
+            return Task.FromResult(new CompanyJobPayload()
             {
                 Id = poco.Id.ToString(),
                 Company = poco.Company.ToString(),
                 IsCompanyHidden = poco.IsCompanyHidden,
                 IsInactive = poco.IsInactive,
-                ProfileCreated = Timestamp.FromDateTime(poco.ProfileCreated)
+                ProfileCreated = Timestamp.FromDateTime(DateTime.SpecifyKind(poco.ProfileCreated, DateTimeKind.Utc))
             });
         }
 
@@ -45,7 +45,7 @@ namespace CareerCloud.gRPC.Services
                 ProfileCreated = request.ProfileCreated.ToDateTime()
             } };
             _logic.Add(pocos);
-            return new Task<Empty>(() => new Empty());
+            return Task.FromResult(new Empty());
         }
 
         public override Task<Empty> UpdateCompanyJob(CompanyJobPayload request, ServerCallContext context)
@@ -59,14 +59,14 @@ namespace CareerCloud.gRPC.Services
                 ProfileCreated = request.ProfileCreated.ToDateTime()
             } };
             _logic.Update(pocos);
-            return new Task<Empty>(() => new Empty());
+            return Task.FromResult(new Empty());
         }
 
         public override Task<Empty> DeleteCompanyJob(CompanyJobPayload request, ServerCallContext context)
         {
             CompanyJobPoco poco = _logic.Get(Guid.Parse(request.Id));
             _logic.Delete(new CompanyJobPoco[] { poco });
-            return new Task<Empty>(() => new Empty());
+            return Task.FromResult(new Empty());
         }
     }
 }

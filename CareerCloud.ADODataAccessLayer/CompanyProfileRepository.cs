@@ -84,7 +84,7 @@ namespace CareerCloud.ADODataAccessLayer
                     poco.Id = rdr.GetGuid(0);
                     poco.RegistrationDate = rdr.GetDateTime(1);
                     poco.CompanyWebsite = rdr.IsDBNull(2) ? null : rdr.GetString(2);
-                    poco.ContactPhone = rdr.GetString(3);
+                    poco.ContactPhone = rdr.IsDBNull(3) ? null : rdr.GetString(3);
                     poco.ContactName = rdr.IsDBNull(4) ? null : rdr.GetString(4);
 
                     if (!rdr.IsDBNull(5))
@@ -99,7 +99,7 @@ namespace CareerCloud.ADODataAccessLayer
                     if (!rdr.IsDBNull(6))
                     {
                         int bufferSize = (int)rdr.GetBytes(6, 0, null, 0, 0);
-                        poco.CompanyLogo = new byte[bufferSize];
+                        poco.TimeStamp = new byte[bufferSize];
                         rdr.GetBytes(6, 0, poco.TimeStamp, 0, bufferSize);
                     }
                     else

@@ -24,14 +24,14 @@ namespace CareerCloud.gRPC.Services
         public override Task<SecurityLoginPayload> ReadSecurityLogin(SecurityLoginIdRequest request, ServerCallContext context)
         {
             var poco = _logic.Get(Guid.Parse(request.Id));
-            return new Task<SecurityLoginPayload>(() => new SecurityLoginPayload()
+            return Task.FromResult(new SecurityLoginPayload()
             {
                 Id = poco.Id.ToString(),
                 Login = poco.Login,
                 Password = poco.Password,
-                Created = Timestamp.FromDateTime(poco.Created),
-                PasswordUpdate = poco.PasswordUpdate is null ? null : Timestamp.FromDateTime((DateTime)poco.PasswordUpdate),
-                AgreementAccepted = poco.AgreementAccepted is null ? null : Timestamp.FromDateTime((DateTime)poco.AgreementAccepted),
+                Created = Timestamp.FromDateTime(DateTime.SpecifyKind(poco.Created, DateTimeKind.Utc)),
+                PasswordUpdate = poco.PasswordUpdate is null ? null : Timestamp.FromDateTime(DateTime.SpecifyKind((DateTime)poco.PasswordUpdate, DateTimeKind.Utc)),
+                AgreementAccepted = poco.AgreementAccepted is null ? null : Timestamp.FromDateTime(DateTime.SpecifyKind((DateTime)poco.AgreementAccepted, DateTimeKind.Utc)),
                 IsLocked = poco.IsLocked,
                 IsInactive = poco.IsInactive,
                 EmailAddress = poco.EmailAddress,
@@ -61,7 +61,7 @@ namespace CareerCloud.gRPC.Services
                 PrefferredLanguage = request.PrefferredLanguage
             } };
             _logic.Add(pocos);
-            return new Task<Empty>(() => new Empty());
+            return Task.FromResult(new Empty());
         }
 
         public override Task<Empty> UpdateSecurityLogin(SecurityLoginPayload request, ServerCallContext context)
@@ -83,14 +83,14 @@ namespace CareerCloud.gRPC.Services
                 PrefferredLanguage = request.PrefferredLanguage
             } };
             _logic.Update(pocos);
-            return new Task<Empty>(() => new Empty());
+            return Task.FromResult(new Empty());
         }
 
         public override Task<Empty> DeleteSecurityLogin(SecurityLoginPayload request, ServerCallContext context)
         {
             SecurityLoginPoco poco = _logic.Get(Guid.Parse(request.Id));
             _logic.Delete(new SecurityLoginPoco[] { poco });
-            return new Task<Empty>(() => new Empty());
+            return Task.FromResult(new Empty());
         }
     }
 }

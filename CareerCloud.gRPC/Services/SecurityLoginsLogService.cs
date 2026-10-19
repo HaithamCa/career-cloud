@@ -24,12 +24,12 @@ namespace CareerCloud.gRPC.Services
         public override Task<SecurityLoginsLogPayload> ReadSecurityLoginsLog(SecurityLoginsLogIdRequest request, ServerCallContext context)
         {
             var poco = _logic.Get(Guid.Parse(request.Id));
-            return new Task<SecurityLoginsLogPayload>(() => new SecurityLoginsLogPayload()
+            return Task.FromResult(new SecurityLoginsLogPayload()
             {
                 Id = poco.Id.ToString(),
-                Login = poco.Id.ToString(),
+                Login = poco.Login.ToString(),
                 SourceIP = poco.SourceIP,
-                LogonDate = Timestamp.FromDateTime(poco.LogonDate),
+                LogonDate = Timestamp.FromDateTime(DateTime.SpecifyKind(poco.LogonDate, DateTimeKind.Utc)),
                 IsSuccesful = poco.IsSuccesful
             });
         }
@@ -45,7 +45,7 @@ namespace CareerCloud.gRPC.Services
                 IsSuccesful = request.IsSuccesful
             } };
             _logic.Add(pocos);
-            return new Task<Empty>(() => new Empty());
+            return Task.FromResult(new Empty());
         }
 
         public override Task<Empty> UpdateSecurityLoginsLog(SecurityLoginsLogPayload request, ServerCallContext context)
@@ -59,14 +59,14 @@ namespace CareerCloud.gRPC.Services
                 IsSuccesful = request.IsSuccesful
             } };
             _logic.Update(pocos);
-            return new Task<Empty>(() => new Empty());
+            return Task.FromResult(new Empty());
         }
 
         public override Task<Empty> DeleteSecurityLoginsLog(SecurityLoginsLogPayload request, ServerCallContext context)
         {
             SecurityLoginsLogPoco poco = _logic.Get(Guid.Parse(request.Id));
             _logic.Delete(new SecurityLoginsLogPoco[] { poco });
-            return new Task<Empty>(() => new Empty());
+            return Task.FromResult(new Empty());
         }
     }
 }

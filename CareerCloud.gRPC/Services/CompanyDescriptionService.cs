@@ -24,7 +24,7 @@ namespace CareerCloud.gRPC.Services
         public override Task<CompanyDescriptionPayload> ReadCompanyDescription(CompanyDescriptionIdRequest request, ServerCallContext context)
         {
             var poco = _logic.Get(Guid.Parse(request.Id));
-            return new Task<CompanyDescriptionPayload>(() => new CompanyDescriptionPayload()
+            return Task.FromResult(new CompanyDescriptionPayload()
             {
                 Id = poco.Id.ToString(),
                 Company = poco.Company.ToString(),
@@ -45,7 +45,7 @@ namespace CareerCloud.gRPC.Services
                 LanguageId = request.LanguageId
             } };
             _logic.Add(pocos);
-            return new Task<Empty>(() => new Empty());
+            return Task.FromResult(new Empty());
         }
 
         public override Task<Empty> UpdateCompanyDescription(CompanyDescriptionPayload request, ServerCallContext context)
@@ -59,14 +59,14 @@ namespace CareerCloud.gRPC.Services
                 LanguageId = request.LanguageId
             } };
             _logic.Update(pocos);
-            return new Task<Empty>(() => new Empty());
+            return Task.FromResult(new Empty());
         }
 
         public override Task<Empty> DeleteCompanyDescription(CompanyDescriptionPayload request, ServerCallContext context)
         {
             CompanyDescriptionPoco poco = _logic.Get(Guid.Parse(request.Id));
             _logic.Delete(new CompanyDescriptionPoco[] { poco });
-            return new Task<Empty>(() => new Empty());
+            return Task.FromResult(new Empty());
         }
     }
 }

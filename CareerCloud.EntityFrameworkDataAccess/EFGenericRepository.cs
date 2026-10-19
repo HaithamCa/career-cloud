@@ -33,7 +33,7 @@ namespace CareerCloud.EntityFrameworkDataAccess
             IQueryable<T> dbQuery = _context.Set<T>();
             foreach (var navprop in navigationProperties)
             {
-                dbQuery.Include<T, object>(navprop);
+                dbQuery = dbQuery.Include<T, object>(navprop);
             }
             return dbQuery.ToList<T>();
         }
@@ -43,7 +43,7 @@ namespace CareerCloud.EntityFrameworkDataAccess
             IQueryable<T> dbQuery = _context.Set<T>();
             foreach (var navprop in navigationProperties)
             {
-                dbQuery.Include<T, object>(navprop);
+                dbQuery = dbQuery.Include<T, object>(navprop);
             }
             return dbQuery.Where(where).ToList<T>();
         }
@@ -53,7 +53,7 @@ namespace CareerCloud.EntityFrameworkDataAccess
             IQueryable<T> dbQuery = _context.Set<T>();
             foreach (var navprop in navigationProperties)
             {
-                dbQuery.Include<T, object>(navprop);
+                dbQuery = dbQuery.Include<T, object>(navprop);
             }
             return dbQuery.FirstOrDefault(where);
         }

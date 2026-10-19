@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CareerCloud.WebAPI.Controllers
 {
-    [Route("api/careercloud/applicant/v1")]
+    [Route("api/careercloud/security/v1")]
     [ApiController]
     public class SecurityLoginsRoleController : ControllerBase
     {
@@ -23,7 +23,7 @@ namespace CareerCloud.WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("loginslog/{SecurityLoginsRoleId}")]
+        [Route("loginsrole/{securityLoginsRoleId}")]
         public ActionResult GetSecurityLoginsRole(Guid securityLoginsRoleId)
         {
             SecurityLoginsRolePoco securityLoginsRole = _securityLoginsRoleLogic.Get(securityLoginsRoleId);
@@ -36,7 +36,7 @@ namespace CareerCloud.WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("loginslog")]
+        [Route("loginsrole")]
 
         public ActionResult GetSecurityLoginsRole()
         {
@@ -45,7 +45,7 @@ namespace CareerCloud.WebAPI.Controllers
         }
 
         [HttpPost]
-        [Route("loginslog")]
+        [Route("loginsrole")]
         public ActionResult PostSecurityLoginRole([FromBody] SecurityLoginsRolePoco[] pocos)
         {
             _securityLoginsRoleLogic.Add(pocos);
@@ -53,7 +53,7 @@ namespace CareerCloud.WebAPI.Controllers
         }
 
         [HttpPut]
-        [Route("loginslog")]
+        [Route("loginsrole")]
         public ActionResult PutSecurityLoginsRole([FromBody] SecurityLoginsRolePoco[] pocos)
         {
             _securityLoginsRoleLogic.Update(pocos);
@@ -61,7 +61,7 @@ namespace CareerCloud.WebAPI.Controllers
         }
 
         [HttpDelete]
-        [Route("loginslog")]
+        [Route("loginsrole")]
         public ActionResult DeleteSecurityLoginRole([FromBody] SecurityLoginsRolePoco[] pocos)
         {
             _securityLoginsRoleLogic.Delete(pocos);

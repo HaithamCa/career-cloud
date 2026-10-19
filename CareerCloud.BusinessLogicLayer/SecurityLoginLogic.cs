@@ -33,7 +33,7 @@ namespace CareerCloud.BusinessLogicLayer
             Verify(pocos);
             foreach (SecurityLoginPoco poco in pocos)
             {
-                poco.Password = ComputeHash(poco.Password, new byte[saltLengthLimit]);
+                poco.Password = ComputeHash(poco.Password, null);
                 poco.Created = DateTime.Now.ToUniversalTime();
                 poco.IsLocked = false;
                 poco.IsInactive = false;
