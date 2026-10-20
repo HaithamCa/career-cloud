@@ -67,6 +67,64 @@ namespace CareerCloud.WebAPI.Controllers
             _securityLoginLogic.Delete(pocos);
             return Ok();
         }
+
+        [HttpPost]
+        [Route("login/authenticate")]
+        public ActionResult Authenticate([FromBody] AuthenticateRequest request)
+        {
+            if (request == null || string.IsNullOrWhiteSpace(request.Login) || string.IsNullOrWhiteSpace(request.Password))
+            {
+                return BadRequest(new { message = "Login and password are required." });
+            }
+
+            bool isValid = _securityLoginLogic.Authenticate(request.Login, request.Password);
+            var user = _securityLoginLogic.GetAll().FirstOrDefault(u =>
+                string.Equals(u.Login, request.Login, StringComparison.OrdinalIgnoreCase));
+
+            if (user != null)
+            {
+                var logRepo = new EFGenericRepository<SecurityLoginsLogPoco>();
+                var logLogic = new SecurityLoginsLogLogic(logRepo);
+                logLogic.Add(new[]
+                {
+                    new SecurityLoginsLogPoco
+                    {
+                        Id = Guid.NewGuid(),
+                        Login = user.Id,
+                        SourceIP = HttpContext?.Connection?.RemoteIpAddress?.ToString() ?? "127.0.0.1",
+                        LogonDate = DateTime.UtcNow,
+                        IsSuccesful = isValid
+                    }
+                });
+            }
+
+            if (!isValid || user == null)
+            {
+                return Unauthorized(new { message = "Invalid login or password." });
+            }
+
+            return Ok(new
+            {
+                user.Id,
+                user.Login,
+                user.FullName,
+                user.EmailAddress,
+                user.PhoneNumber,
+                user.PrefferredLanguage,
+                user.Created,
+                user.PasswordUpdate,
+                user.AgreementAccepted,
+                user.IsLocked,
+                user.IsInactive,
+                user.ForceChangePassword
+            });
+        }
+    }
+
+    public class AuthenticateRequest
+    {
+        public string Login { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
     }
 }
 

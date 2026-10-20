@@ -34,9 +34,16 @@ namespace CareerCloud.EntityFrameworkDataAccess
         {
             if (!optionBuilder.IsConfigured)
             {
-                var connStr = Environment.GetEnvironmentVariable("CAREERCLOUD_CONNECTION_STRING")
-                    ?? "Data Source=localhost;Initial Catalog=JOB_PORTAL_DB;Integrated Security=True;";
-                optionBuilder.UseSqlServer(connStr);
+                var connStr = Environment.GetEnvironmentVariable("CAREERCLOUD_CONNECTION_STRING");
+                if (!string.IsNullOrWhiteSpace(connStr))
+                {
+                    optionBuilder.UseSqlServer(connStr);
+                }
+                else
+                {
+                    var dbPath = Path.Combine(AppContext.BaseDirectory, "careercloud.db");
+                    optionBuilder.UseSqlite($"Data Source={dbPath}");
+                }
             }
             //base.OnConfiguring(optionBuilder);
         }
@@ -188,6 +195,19 @@ namespace CareerCloud.EntityFrameworkDataAccess
                 .HasForeignKey(f => f.Role);
                 entity.Property(e => e.TimeStamp).IsRowVersion();
             });
+
+            if (Database.ProviderName == "Microsoft.EntityFrameworkCore.Sqlite")
+            {
+                foreach (var entityType in modelBuilder.Model.GetEntityTypes())
+                {
+                    var tsProp = entityType.FindProperty("TimeStamp");
+                    if (tsProp != null)
+                    {
+                        tsProp.IsNullable = true;
+                        tsProp.ValueGenerated = Microsoft.EntityFrameworkCore.Metadata.ValueGenerated.Never;
+                    }
+                }
+            }
 
             base.OnModelCreating(modelBuilder);
         }
