@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiBaseUrl: 'http://localhost:5115/api/careercloud'
+  apiBaseUrl: '/api/careercloud'
 };

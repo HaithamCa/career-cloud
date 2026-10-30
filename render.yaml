@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: career-cloud-portal
+    runtime: docker
+    plan: free
+    autoDeploy: true
+    envVars:
+      - key: ASPNETCORE_URLS
+        value: http://+:8080
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
