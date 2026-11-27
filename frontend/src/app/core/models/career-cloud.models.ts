@@ -174,8 +174,12 @@ export interface EnrichedJobView {
   educations: CompanyJobEducationPoco[];
   title: string;
   summary: string;
+  fullDescription?: string;
   companyName: string;
   locationLabel: string;
+  source?: string;
+  externalUrl?: string;
+  salary?: string;
 }
 
 export interface AuthenticatedUser {

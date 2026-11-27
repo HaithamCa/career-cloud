@@ -56,7 +56,7 @@ import { extractApiErrorMessage, newGuid } from '../../core/utils/guid.util';
           <div class="detail-main">
             <article class="card" style="margin-bottom: 1.25rem;">
               <h2 class="section-heading">Role Description</h2>
-              <p class="body-copy">{{ item.summary }}</p>
+              <p class="body-copy">{{ item.fullDescription || item.summary }}</p>
             </article>
 
             <article class="card" style="margin-bottom: 1.25rem;">
@@ -125,6 +125,18 @@ import { extractApiErrorMessage, newGuid } from '../../core/utils/guid.util';
                     Submit Application Now
                   }
                 </button>
+              }
+
+              @if (item.externalUrl) {
+                <a
+                  [href]="item.externalUrl"
+                  target="_blank"
+                  rel="noopener"
+                  class="btn btn-secondary"
+                  style="width: 100%; margin-top: 0.65rem; text-align: center; display: block;"
+                >
+                  View Original Listing ({{ item.source || 'External' }}) ↗
+                </a>
               }
             </div>
 

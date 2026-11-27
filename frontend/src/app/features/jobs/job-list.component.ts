@@ -63,9 +63,15 @@ import { extractApiErrorMessage } from '../../core/utils/guid.util';
 
         <div class="filter-actions">
           <span class="results-summary" aria-live="polite">
-            Showing {{ pagedJobs().length }} of {{ filteredJobs().length }} matching roles
+            Showing {{ pagedJobs().length }} of {{ filteredJobs().length }} matching roles ({{ allJobs().length }} total loaded)
+            @if (searchingExternal()) {
+              · <em>Searching live job APIs...</em>
+            }
           </span>
           <div style="display: flex; gap: 0.5rem;">
+            <button type="submit" class="btn btn-primary btn-sm" [disabled]="searchingExternal()">
+              {{ searchingExternal() ? 'Searching APIs...' : 'Search Live APIs' }}
+            </button>
             <button type="button" class="btn btn-secondary btn-sm" (click)="resetFilters()">
               Clear Filters
             </button>
@@ -109,6 +115,12 @@ import { extractApiErrorMessage } from '../../core/utils/guid.util';
                     <span class="badge badge-neutral">Inactive</span>
                   } @else {
                     <span class="badge">Active</span>
+                  }
+                  @if (item.source) {
+                    <span class="badge badge-neutral">{{ item.source }}</span>
+                  }
+                  @if (item.salary) {
+                    <span class="badge">{{ item.salary }}</span>
                   }
                 </div>
 
@@ -273,9 +285,11 @@ export class JobListComponent implements OnInit {
 
   readonly allJobs = signal<EnrichedJobView[]>([]);
   readonly loading = signal<boolean>(true);
+  readonly searchingExternal = signal<boolean>(false);
   readonly errorMessage = signal<string | null>(null);
   readonly currentPage = signal<number>(1);
-  readonly pageSize = 5;
+  readonly pageSize = 10;
+  private searchTimer: ReturnType<typeof setTimeout> | null = null;
 
   readonly filterForm = this.fb.nonNullable.group({
     query: [''],
@@ -357,8 +371,9 @@ export class JobListComponent implements OnInit {
   loadJobs(): void {
     this.loading.set(true);
     this.errorMessage.set(null);
+    const q = this.filterForm.controls.query.value.trim();
 
-    this.catalog.loadEnrichedJobs().subscribe({
+    this.catalog.loadEnrichedJobs(q).subscribe({
       next: (jobs) => {
         this.allJobs.set(jobs);
         this.loading.set(false);
@@ -372,8 +387,35 @@ export class JobListComponent implements OnInit {
   }
 
   applyFilters(): void {
-    this.filterState.set(this.filterForm.getRawValue());
+    const raw = this.filterForm.getRawValue();
+    this.filterState.set(raw);
     this.currentPage.set(1);
+
+    const q = raw.query.trim();
+    if (this.searchTimer) {
+      clearTimeout(this.searchTimer);
+    }
+    if (q.length >= 2) {
+      this.searchTimer = setTimeout(() => {
+        this.searchingExternal.set(true);
+        this.catalog.searchLiveExternalJobs(q).subscribe({
+          next: (liveJobs) => {
+            this.searchingExternal.set(false);
+            if (liveJobs.length > 0) {
+              const merged = new Map<string, EnrichedJobView>();
+              for (const existing of this.allJobs()) {
+                merged.set(existing.job.id, existing);
+              }
+              for (const item of liveJobs) {
+                merged.set(item.job.id, item);
+              }
+              this.allJobs.set(Array.from(merged.values()));
+            }
+          },
+          error: () => this.searchingExternal.set(false)
+        });
+      }, 450);
+    }
   }
 
   resetFilters(): void {
