@@ -120,6 +120,32 @@ export const careerCloudPhoneValidator: ValidatorFn = (
           >
             {{ submitting() ? 'Verifying Credentials...' : 'Sign In' }}
           </button>
+
+          <div style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+            <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0 0 0.65rem 0;">
+              Quick Demo Access (or switch to <strong>Create Account</strong> above):
+            </p>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                style="flex: 1; font-size: 0.82rem;"
+                [disabled]="submitting()"
+                (click)="fillDemo('applicant_demo', 'Career$2026')"
+              >
+                Demo Applicant (applicant_demo)
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                style="flex: 1; font-size: 0.82rem;"
+                [disabled]="submitting()"
+                (click)="fillDemo('employer_demo', 'Career$2026')"
+              >
+                Demo Employer (employer_demo)
+              </button>
+            </div>
+          </div>
         </form>
       } @else {
         <form [formGroup]="registerForm" (ngSubmit)="onRegister()" class="card" novalidate>
@@ -299,6 +325,11 @@ export class AuthComponent implements OnInit {
     this.mode.set(nextMode);
     this.errorMessage.set(null);
     this.successMessage.set(null);
+  }
+
+  fillDemo(login: string, password: string): void {
+    this.signInForm.setValue({ login, password });
+    this.onSignIn();
   }
 
   onSignIn(): void {
